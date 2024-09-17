@@ -15,7 +15,6 @@ const addRecommendationToCollection = async (req, res) => {
   try {
     const { collectionId, recommendationId, userId } = req.body;
     
-    // Check if the recommendation belongs to the user
     const recommendations = await recommendationModel.getRecommendationsByUser(userId);
     const userRecommendations = recommendations.map(r => r.id);
     
