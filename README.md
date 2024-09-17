@@ -31,7 +31,8 @@ The Recommendations Collection App is a Node.js and Express application that ena
 
 2. **Install Dependencies**
 
-npm install
+   ```bash
+   npm install
 
 2. **Setup Environment Variables**
 
@@ -39,4 +40,5 @@ DATABASE_URL=postgresql://username:password@hostname:port/database?sslmode=requi
 
 3. **Run the Application**
 
-node src/app.js
+   ```bash
+   node src/app.js
