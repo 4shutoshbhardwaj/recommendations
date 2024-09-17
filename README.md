@@ -43,3 +43,89 @@ The Recommendations Collection App is a Node.js and Express application that ena
 
    ```bash
    node src/app.js
+
+
+# Recommendations Collection API
+
+## Overview
+
+The Recommendations Collection API allows users to manage their recommendations by grouping them into collections. Users can create collections, add or remove recommendations, view collections, and delete them as needed.
+
+## API Endpoints
+
+### 1. Create Collection
+
+- **Endpoint**: `POST /api/create`
+- **Description**: Creates a new collection for the specified user.
+- **Request Body**:
+  ```json
+  {
+    "userId": 1,
+    "name": "Favorite Movies",
+    "description": "A collection of my favorite movies"
+  }
+- **Response**:
+  ```json
+  {
+     "id": 1,
+     "userId": 1,
+     "name": "Favorite Movies",
+     "description": "A collection of my favorite movies"
+   }
+
+- **Endpoint**: `POST /api/add`
+- **Description**: Adds a recommendation to a specified collection.
+- **Request Body**:
+  ```json
+  {
+  "collectionId": 1,
+  "recommendationId": 3,
+  "userId": 1
+   }
+- **Response**:
+  ```json
+  {
+  "collectionId": 1,
+  "recommendationId": 3,
+  "status": "Added"
+   }
+
+- **Endpoint**: `DELETE /api/remove`
+- **Description**: Removes a recommendation from a specified collection.
+- **Request Body**:
+  ```json
+  {
+  "collectionId": 1,
+  "recommendationId": 3
+   }
+- **Response**:
+  ```json
+  {
+  "status": "Removed"
+   }
+- **Endpoint**: `GET /api/:userId`
+- **Description**: Retrieves all collections and associated recommendations for a user.
+- **Response**:
+  ```json
+  [
+  {
+    "id": 1,
+    "userId": 1,
+    "name": "Favorite Movies",
+    "description": "A collection of my favorite movies",
+    "recommendations": [
+      {
+        "id": 3,
+        "title": "Inception",
+        "type": "Movie"
+      }
+    ]
+  }
+   ]
+- **Endpoint**: `DELETE /api/:collectionId`
+- **Description**: Deletes a specified collection.
+- **Response**:
+  ```json
+  {
+  "status": "Deleted"
+   }
